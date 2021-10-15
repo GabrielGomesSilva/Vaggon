@@ -2,10 +2,26 @@
 
 namespace App\Http\Controllers;
 
+use App\Models\ModelAluno;
+use App\Models\ModelProf;
 use Illuminate\Http\Request;
 
 class AlunosController extends Controller
 {
+    
+    public $objAlunos;
+    public $objProf;
+
+    public function __construct()
+    {
+        
+        $this->objProf = new ModelProf();
+        $this->objAlunos = new ModelAluno();
+
+    }
+
+    
+    
     /**
      * Display a listing of the resource.
      *
@@ -13,7 +29,10 @@ class AlunosController extends Controller
      */
     public function index()
     {
-        return view('alunos');
+        
+        //$Aluno = $this->objAlunos->all();
+        //return view('prof', compact('Aluno'));
+
     }
 
     /**

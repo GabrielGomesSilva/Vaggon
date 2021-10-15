@@ -1,11 +1,23 @@
 <?php
 
 namespace App\Http\Controllers;
-
+use App\Models\ModelAluno;
+use App\Models\ModelProf;
 use Illuminate\Http\Request;
 
 class ProfController extends Controller
 {
+
+    private $objProf;
+
+
+    public function __construct()
+    {
+        
+        $this->objProf = new ModelProf();
+        $this->objAlunos = new ModelAluno();
+    }
+
     /**
      * Display a listing of the resource.
      *
@@ -13,7 +25,13 @@ class ProfController extends Controller
      */
     public function index()
     {
-        return view('prof');
+        $Aluno = $this->objAlunos->all();
+        $prof = $this->objProf->all();
+        return view('prof', compact(array('prof','Aluno')));
+
+        
+        
+
     }
 
     /**
@@ -23,7 +41,7 @@ class ProfController extends Controller
      */
     public function create()
     {
-        //
+        return view('Cadastro/prof');
     }
 
     /**
@@ -34,7 +52,21 @@ class ProfController extends Controller
      */
     public function store(Request $request)
     {
-        //
+        $cadastro = $this->objProf->create([
+            'Nome'=>$request->Nome,
+            'Codigo'=>$request->Codigo,
+            'Cpf'=>$request->Cpf,
+            'Data_nascimento'=>$request->Data_nascimento,
+
+        ]);
+
+        if($cadastro){
+            return redirect('professores');
+
+        }
+
+
+
     }
 
     /**
@@ -56,7 +88,10 @@ class ProfController extends Controller
      */
     public function edit($id)
     {
-        //
+        $ProfEdit = $this->objProf->Find($id);
+        return view('Editar/Prof', compact('ProfEdit'));
+
+
     }
 
     /**
@@ -68,7 +103,19 @@ class ProfController extends Controller
      */
     public function update(Request $request, $id)
     {
-        //
+        
+        $this->objProf->where(['id'=>$id])->update([
+            'Nome'=>$request->Nome,
+            'Codigo'=>$request->Codigo,
+            'Cpf'=>$request->Cpf,
+            'Data_nascimento'=>$request->Data_nascimento,
+
+        ]);
+
+        return redirect('professores');
+
+
+
     }
 
     /**
@@ -79,6 +126,10 @@ class ProfController extends Controller
      */
     public function destroy($id)
     {
-        //
+        
+        $this->objProf->destroy($id);
+
+        return redirect('professores');
+
     }
 }
