@@ -9,5 +9,11 @@ class ModelDisciplina extends Model
 {
     //use HasFactory;
     protected $table = 'Disciplina';
-
+    protected $fillable = [
+        'Codigo',
+        'Nome',
+        'Professores',
+        
+        
+    ];
 }

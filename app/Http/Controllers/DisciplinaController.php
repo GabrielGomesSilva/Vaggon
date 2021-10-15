@@ -2,21 +2,20 @@
 
 namespace App\Http\Controllers;
 
-use App\Models\ModelAluno;
-use App\Models\ModelProf;
+use App\Models\ModelDisciplina;
 use Illuminate\Http\Request;
 
-class AlunosController extends Controller
+class DisciplinaController extends Controller
 {
     
-    public $objAlunos;
-    public $objProf;
+    //public $objAlunos;
+    public $objDisciplina;
 
     public function __construct()
     {
         
         //$this->objProf = new ModelProf();
-        $this->objAlunos = new ModelAluno();
+        $this->objDisciplina = new ModelDisciplina();
 
     }
 
@@ -30,8 +29,8 @@ class AlunosController extends Controller
     public function index()
     {
         
-        $Aluno = $this->objAlunos->all();
-        return view('alunos', compact('Aluno'));
+        $Disciplina = $this->objDisciplina->all();
+        return view('disciplina', compact('Disciplina'));
 
         //$Aluno = $this->objAlunos->all();
         //return view('prof', compact('Aluno'));
@@ -45,7 +44,7 @@ class AlunosController extends Controller
      */
     public function create()
     {
-        return view('Cadastro/Aluno');
+        return view('Cadastro/Disciplina');
     }
 
     /**
@@ -57,17 +56,16 @@ class AlunosController extends Controller
     public function store(Request $request)
     {
         
-        $cadastro = $this->objAlunos->create([
+        $cadastro = $this->objDisciplina->create([
             'Codigo'=>$request->Codigo,
             'Nome'=>$request->Nome,
-            'Cpf'=>$request->Cpf,
-            'Data_nascimento'=>$request->Data_nascimento,
-            'Turma'=>$request->Turma,
+            'Professores'=>$request->Professores,
+            
 
         ]);
 
         if($cadastro){
-            return redirect('Alunos');
+            return redirect('Disciplinas');
 
         }
 
@@ -93,8 +91,8 @@ class AlunosController extends Controller
      */
     public function edit($id)
     {
-        $AlunoEdit = $this->objAlunos->Find($id);
-        return view('Editar/Aluno', compact('AlunoEdit'));
+        $DisciplinaEdit = $this->objDisciplina->Find($id);
+        return view('Editar/Disciplina', compact('DisciplinaEdit'));
 
 
     }
@@ -108,16 +106,15 @@ class AlunosController extends Controller
      */
     public function update(Request $request, $id)
     {
-        $this->objAlunos->where(['id'=>$id])->update([
+        $this->objDisciplina->where(['id'=>$id])->update([
             'Codigo'=>$request->Codigo,
             'Nome'=>$request->Nome,
-            'Cpf'=>$request->Cpf,
-            'Data_nascimento'=>$request->Data_nascimento,
-            'Turma'=>$request->Turma,
+            'Professores'=>$request->Professores,
+            
 
         ]);
 
-        return redirect('Alunos');
+        return redirect('Disciplinas');
     }
 
     /**
@@ -129,10 +126,12 @@ class AlunosController extends Controller
     public function destroy($id)
     {
         
-        $this->objAlunos->destroy($id);
+        $this->objDisciplina->destroy($id);
 
-        return redirect('Alunos');
+        return redirect('Disciplinas');
 
 
     }
+
+
 }

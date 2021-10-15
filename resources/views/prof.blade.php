@@ -32,9 +32,7 @@
        
         </tbody>
     </table>
-
-    <h1> <?php var_dump('$Aluno'); ?> </h1>
-
 </div>
+    
 
 @endsection

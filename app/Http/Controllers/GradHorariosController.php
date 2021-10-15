@@ -2,21 +2,22 @@
 
 namespace App\Http\Controllers;
 
-use App\Models\ModelAluno;
-use App\Models\ModelProf;
+use App\Models\ModelGradHorario;
+use App\Models\ModelTurma;
 use Illuminate\Http\Request;
 
-class AlunosController extends Controller
+class GradHorariosController extends Controller
 {
     
-    public $objAlunos;
-    public $objProf;
+    //public $objAlunos;
+    public $objGradHorario;
 
     public function __construct()
     {
         
         //$this->objProf = new ModelProf();
-        $this->objAlunos = new ModelAluno();
+        $this->objGradHorario = new ModelGradHorario();
+        $this->objTurma = new ModelTurma();
 
     }
 
@@ -30,8 +31,9 @@ class AlunosController extends Controller
     public function index()
     {
         
-        $Aluno = $this->objAlunos->all();
-        return view('alunos', compact('Aluno'));
+        $GradTurma = $this->objTurma->all();
+        $GradHorario = $this->objGradHorario->all();
+        return view('gradhorarios', compact(array('GradHorario', 'GradTurma')));
 
         //$Aluno = $this->objAlunos->all();
         //return view('prof', compact('Aluno'));
@@ -45,7 +47,8 @@ class AlunosController extends Controller
      */
     public function create()
     {
-        return view('Cadastro/Aluno');
+        $GradTurma = $this->objTurma->all();
+        return view('Cadastro/GradHorario', compact('GradTurma'));
     }
 
     /**
@@ -60,14 +63,14 @@ class AlunosController extends Controller
         $cadastro = $this->objAlunos->create([
             'Codigo'=>$request->Codigo,
             'Nome'=>$request->Nome,
-            'Cpf'=>$request->Cpf,
-            'Data_nascimento'=>$request->Data_nascimento,
+            'Professores'=>$request->Cpf,
+            'id_turma'=>$request->id_turma,
             'Turma'=>$request->Turma,
 
         ]);
 
         if($cadastro){
-            return redirect('Alunos');
+            return redirect('Horarios');
 
         }
 
@@ -135,4 +138,6 @@ class AlunosController extends Controller
 
 
     }
+
+
 }

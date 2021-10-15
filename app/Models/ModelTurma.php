@@ -8,7 +8,15 @@ use Illuminate\Database\Eloquent\Model;
 class ModelTurma extends Model
 {
     //use HasFactory;
-    protected $table = 'Turma';
+    protected $table = 'Turmas';
 
+    protected $fillable = [
+        'Codigo',
+        'Nome',
+        'Estudantes',
+        
+        
+        
+    ];
 
 }

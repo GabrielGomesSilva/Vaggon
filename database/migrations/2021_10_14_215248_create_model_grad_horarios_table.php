@@ -18,6 +18,8 @@ class CreateModelGradHorariosTable extends Migration
             $table->string('Codigo');
             $table->string('Nome');
             $table->string('Turma'); //->unique();
+            $table->integer('id_Turma')->unsigned(); //->unique();
+            $table->foreign('gradhorarios_id_turma_foreign')->references('id')->on('turmas')->onDelete('cascade')->onUpdate('cascade'); //->unique();
             $table->time('horarios'); //Chave estrageira
             
             
