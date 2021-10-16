@@ -15,8 +15,12 @@
         </div>
 
         <div class="col-sm-3">
-            <span>Professores</span>
-                <input type="text" name="Professores">
+            <select name="Professores"> 
+                       <!-- <option value="">  </option>-->
+                        @foreach($Prof as $turmas)
+                        <option value="{{$turmas->Nome}}"> {{$turmas->Nome}}</option>                    
+                        @endforeach
+            </select>
         </div> 
     </div>
     

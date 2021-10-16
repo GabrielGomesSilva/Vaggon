@@ -14,15 +14,15 @@ class ModelGradHorario extends Model
         'Codigo',
         'Nome',
         'Turma',
-        'id_Turma',
+        'id_turma',
         'horarios',
         
         
     ];
 
 
-    public function relUsers(){
-        return $this->hasOne('App\Models\Turma','id','id_turma');
+    public function Disciplinas(){
+        return $this->hasOne('App\Models\ModelTurma','id','id_turma');
 
 
     }

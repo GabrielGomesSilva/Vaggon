@@ -46,12 +46,14 @@ Route::post('/Turmas/update/{id}', 'App\Http\Controllers\AlunosController@update
 Route::get('/Turmas/{id}/edit', 'App\Http\Controllers\AlunosController@destroy')->name('turma.destroy');
 
 Route::get('/GradHorarios', 'App\Http\Controllers\GradHorariosController@index')->name('gradhorario.index');
+
 Route::get('/GradHorarios/create', 'App\Http\Controllers\GradHorariosController@create')->name('gradhorario.create');
 Route::post('/GradHorarios/store', 'App\Http\Controllers\GradHorariosController@store')->name('gradhorario.store');
 Route::get('/GradHorarios/editar/{id}', 'App\Http\Controllers\GradHorariosController@edit')->name('gradhorario.edit');
 Route::post('/GradHorarios/update/{id}', 'App\Http\Controllers\GradHorariosController@update')->name('gradhorario.update');
 Route::get('/GradHorarios/{id}/edit', 'App\Http\Controllers\GradHorariosController@destroy')->name('gradhorario.destroy');
 
+Route::get('/GradHorarios/show/{id}', 'App\Http\Controllers\GradHorariosController@show')->name('gradhorario.index');
 
 //Route::get('/professores', 'App\Http\Controllers\AlunosController@index')->name('alunos.index');;
 Route::get('/horario', 'App\Http\Controllers\HorariosController@index')->name('horarios.index');;

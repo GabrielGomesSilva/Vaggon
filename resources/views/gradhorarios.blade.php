@@ -10,7 +10,8 @@
                 <tr>
                     <th>Código</th>
                     <th>Nome</th>
-                    <th>Professores</th>
+                    <th>Turma</th>
+                    <th>Horarios</th>
                     <th>Ações</th>
                     
                 </tr>
@@ -20,8 +21,9 @@
                 <tr>
                     <td>{{$GradHorarios->Codigo}}</td>
                     <td>{{$GradHorarios->Nome}}</td>
-                    <td>{{$GradHorarios->Professores}}</td>        
-                    <td> <a href="{{route('disciplina.edit', $GradHorarios->id)}}"> Editar</a>  | <a href="{{route('disciplina.destroy', $GradHorarios->id)}}"> Excluir </a>  </td>
+                    <td>{{$GradHorarios->Turma}}</td>        
+                    <td>{{$GradHorarios->horarios}}</td>        
+                    <td> <a href="{{route('gradhorario.edit', $GradHorarios->id)}}"> Editar</a>  | <a href="{{route('gradhorario.destroy', $GradHorarios->id)}}"> Excluir </a>  </td>
                     
                 </tr>
                     @endforeach

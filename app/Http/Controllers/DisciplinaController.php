@@ -3,6 +3,7 @@
 namespace App\Http\Controllers;
 
 use App\Models\ModelDisciplina;
+use App\Models\ModelProf;
 use Illuminate\Http\Request;
 
 class DisciplinaController extends Controller
@@ -10,12 +11,14 @@ class DisciplinaController extends Controller
     
     //public $objAlunos;
     public $objDisciplina;
+    public $objProf;
 
     public function __construct()
     {
         
         //$this->objProf = new ModelProf();
         $this->objDisciplina = new ModelDisciplina();
+        $this->objProf = new ModelProf();
 
     }
 
@@ -44,7 +47,8 @@ class DisciplinaController extends Controller
      */
     public function create()
     {
-        return view('Cadastro/Disciplina');
+        $Prof = $this->objProf->all();
+        return view('Cadastro/Disciplina' , compact('Prof'));
     }
 
     /**

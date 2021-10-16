@@ -47,6 +47,7 @@ class GradHorariosController extends Controller
      */
     public function create()
     {
+        
         $GradTurma = $this->objTurma->all();
         return view('Cadastro/GradHorario', compact('GradTurma'));
     }
@@ -60,17 +61,30 @@ class GradHorariosController extends Controller
     public function store(Request $request)
     {
         
-        $cadastro = $this->objAlunos->create([
+        /*$GradHorario = $this->objTurma->all();
+        foreach($GradHorario as $GradHorarios){
+                if($request->id_turma == $GradHorarios->id_turma){
+
+
+
+                }
+
+        } */
+
+        $teste = 1;
+        
+        $cadastro = $this->objGradHorario->create([
             'Codigo'=>$request->Codigo,
             'Nome'=>$request->Nome,
-            'Professores'=>$request->Cpf,
-            'id_turma'=>$request->id_turma,
             'Turma'=>$request->Turma,
+            'horarios'=>$request->horarios,
+            'id_turma'=>$request->id_turma,
+            
 
         ]);
 
         if($cadastro){
-            return redirect('Horarios');
+            return redirect('GradHorarios');
 
         }
 
@@ -85,7 +99,23 @@ class GradHorariosController extends Controller
      */
     public function show($id)
     {
-        //
+        echo "<h1> Dados </h1>";
+                
+
+        $teste = $this->objGradHorario->Disciplinas();
+            if($teste){
+                echo "<h1> Dados </h1>";
+                echo "<h1> {$teste->Nome} </h1>";
+
+            }
+
+          $disciplinas = $teste->Disciplinas()->first();
+          var_dump($teste);
+
+          if($disciplinas){
+              echo "{$disciplinas->nome}";
+          }
+
     }
 
     /**
@@ -96,8 +126,9 @@ class GradHorariosController extends Controller
      */
     public function edit($id)
     {
-        $AlunoEdit = $this->objAlunos->Find($id);
-        return view('Editar/Aluno', compact('AlunoEdit'));
+        $GradTurma = $this->objTurma->all();
+        $GradHorarioEdit = $this->objGradHorario->Find($id);
+        return view('Editar/GradHorario', compact(array('GradHorarioEdit', 'GradTurma')));
 
 
     }
@@ -111,16 +142,16 @@ class GradHorariosController extends Controller
      */
     public function update(Request $request, $id)
     {
-        $this->objAlunos->where(['id'=>$id])->update([
+        $this->objGradHorario->where(['id'=>$id])->update([
             'Codigo'=>$request->Codigo,
             'Nome'=>$request->Nome,
-            'Cpf'=>$request->Cpf,
-            'Data_nascimento'=>$request->Data_nascimento,
             'Turma'=>$request->Turma,
+            'horarios'=>$request->horarios,
+            'id_turma'=>$request->id_turma,
 
         ]);
 
-        return redirect('Alunos');
+        return redirect('GradHorarios');
     }
 
     /**
@@ -132,9 +163,9 @@ class GradHorariosController extends Controller
     public function destroy($id)
     {
         
-        $this->objAlunos->destroy($id);
+        $this->objGradHorario->destroy($id);
 
-        return redirect('Alunos');
+        return redirect('GradHorarios');
 
 
     }
