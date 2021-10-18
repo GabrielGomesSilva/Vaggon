@@ -1,6 +1,8 @@
 <?php
 
+//namespace App\Models\ModelTurma;
 namespace App\Models;
+
 
 use Illuminate\Database\Eloquent\Factories\HasFactory;
 use Illuminate\Database\Eloquent\Model;
@@ -21,8 +23,9 @@ class ModelGradHorario extends Model
     ];
 
 
-    public function Disciplinas(){
-        return $this->hasOne('App\Models\ModelTurma','id','id_turma');
+    public function turmas(){
+        
+        return $this->belongsTo(turmas::class);
 
 
     }

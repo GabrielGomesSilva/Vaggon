@@ -3,7 +3,7 @@
 @section('content')
 
 <div class="container">
-    <h1>Cadastrar Alunos</h1>
+    <h1>Alunos</h1>
         <a href="{{route('aluno.create')}}"><button class="btn btn-primary">  Cadastrar Alunos</button> </a>
             <table class="table">
                 <thead class="thead-dark">
@@ -12,7 +12,6 @@
                     <th>Nome</th>
                     <th>Cpf</th>
                     <th>Data de Nascimento</th>
-                    <th>Disciplina</th>
                     <th>Turma</th>
                     <th>Ações</th>
                     

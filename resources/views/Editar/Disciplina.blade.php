@@ -14,10 +14,10 @@
                 <input type="text" name="Codigo" value="{{$DisciplinaEdit->Codigo ?? '' }}" >
         </div>
 
-        <div class="col-sm-3">
+        <!--<div class="col-sm-3">
             <span>Professores</span>
                 <input type="text" name="Professores" value="{{$DisciplinaEdit->Professores ?? '' }}" >
-        </div>
+        </div>-->
     
     </div>
     

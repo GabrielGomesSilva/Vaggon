@@ -15,6 +15,7 @@ class ModelProf extends Model
         'Codigo',
         'Cpf',
         'Data_nascimento',
+        'Disciplina',
         
     ];
 

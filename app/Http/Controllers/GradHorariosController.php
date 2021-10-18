@@ -70,9 +70,11 @@ class GradHorariosController extends Controller
                 }
 
         } */
-
-        $teste = 1;
+        $turma = $this->objGradHorario->all();
+        $turma->Disciplinas()->save() ;
         
+        
+
         $cadastro = $this->objGradHorario->create([
             'Codigo'=>$request->Codigo,
             'Nome'=>$request->Nome,
@@ -99,22 +101,17 @@ class GradHorariosController extends Controller
      */
     public function show($id)
     {
-        echo "<h1> Dados </h1>";
-                
+        
+        $teste = ModelGradHorario::all();
 
-        $teste = $this->objGradHorario->Disciplinas();
-            if($teste){
-                echo "<h1> Dados </h1>";
-                echo "<h1> {$teste->Nome} </h1>";
+        return view('show', compact('teste'));
 
-            }
-
-          $disciplinas = $teste->Disciplinas()->first();
-          var_dump($teste);
+          //$disciplinas = $teste->Disciplinas()->first();
+/*          dd($teste);
 
           if($disciplinas){
               echo "{$disciplinas->nome}";
-          }
+          }*/
 
     }
 

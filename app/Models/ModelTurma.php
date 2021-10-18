@@ -8,15 +8,21 @@ use Illuminate\Database\Eloquent\Model;
 class ModelTurma extends Model
 {
     //use HasFactory;
-    protected $table = 'Turmas';
+    public $table = 'turmas';
 
-    protected $fillable = [
+    public $fillable = [
         'Codigo',
         'Nome',
-        'Estudantes',
+        
         
         
         
     ];
+
+    public function GradHorario(){
+
+        return $this->belongsTo(ModelGradHorario::class);
+
+    }
 
 }

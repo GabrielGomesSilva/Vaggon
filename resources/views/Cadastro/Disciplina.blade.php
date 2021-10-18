@@ -15,12 +15,10 @@
         </div>
 
         <div class="col-sm-3">
-            <select name="Professores"> 
-                       <!-- <option value="">  </option>-->
-                        @foreach($Prof as $turmas)
-                        <option value="{{$turmas->Nome}}"> {{$turmas->Nome}}</option>                    
-                        @endforeach
-            </select>
+            @foreach($Prof as $Professores)
+            <input type="checkbox" name="Professores[]" id="" value="{{$Professores->Nome}}"> {{$Professores->Nome}} </br>                             
+            @endforeach
+           
         </div> 
     </div>
     

@@ -2,6 +2,7 @@
 
 namespace App\Http\Controllers;
 use App\Models\ModelAluno;
+use App\Models\ModelDisciplina;
 use App\Models\ModelProf;
 use Illuminate\Http\Request;
 
@@ -16,6 +17,7 @@ class ProfController extends Controller
         
         $this->objProf = new ModelProf();
         $this->objAlunos = new ModelAluno();
+        $this->objDisciplinas = new ModelDisciplina();
     }
 
     /**
@@ -41,7 +43,8 @@ class ProfController extends Controller
      */
     public function create()
     {
-        return view('Cadastro/prof');
+        $Disciplina = $this->objDisciplinas->all();
+        return view('Cadastro/prof', compact('Disciplina'));
     }
 
     /**
@@ -57,6 +60,7 @@ class ProfController extends Controller
             'Codigo'=>$request->Codigo,
             'Cpf'=>$request->Cpf,
             'Data_nascimento'=>$request->Data_nascimento,
+            'Disciplina'=>$request->Disciplina,
 
         ]);
 
@@ -88,8 +92,9 @@ class ProfController extends Controller
      */
     public function edit($id)
     {
+        $Disciplina = $this->objDisciplinas->all();
         $ProfEdit = $this->objProf->Find($id);
-        return view('Editar/Prof', compact('ProfEdit'));
+        return view('Editar/Prof', compact(array('ProfEdit', 'Disciplina')));
 
 
     }
@@ -108,6 +113,7 @@ class ProfController extends Controller
             'Nome'=>$request->Nome,
             'Codigo'=>$request->Codigo,
             'Cpf'=>$request->Cpf,
+            'Disciplina'=>$request->Disciplina,
             'Data_nascimento'=>$request->Data_nascimento,
 
         ]);

@@ -2,7 +2,9 @@
 
 namespace App\Http\Controllers;
 
+use App\Models\ModelDisciplina;
 use App\Models\ModelHorario;
+use App\Models\ModelProf;
 use Illuminate\Http\Request;
 
 class HorariosController extends Controller
@@ -16,6 +18,8 @@ class HorariosController extends Controller
         
         //$this->objProf = new ModelProf();
         $this->objHorarios = new ModelHorario();
+        $this->objDisciplinas = new ModelDisciplina();
+        $this->objProfessores = new ModelProf();
 
     }
     
@@ -38,7 +42,9 @@ class HorariosController extends Controller
      */
     public function create()
     {
-        return view('Cadastro/horario');
+        $Disciplina = $this->objDisciplinas->all();
+        $Professor = $this->objProfessores->all();
+        return view('Cadastro/horario', compact(array('Disciplina','Professor')));
     }
 
     /**

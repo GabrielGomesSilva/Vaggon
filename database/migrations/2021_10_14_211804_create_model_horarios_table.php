@@ -17,7 +17,7 @@ class CreateModelHorariosTable extends Migration
             $table->increments('id');        
             $table->string('Codigo');
             $table->string('Disciplina');
-            $table->integer('Professor'); //->unique();
+            $table->string('Professor'); //->unique();
             $table->String('dia_semana');
             $table->time('horario_inicio');
             $table->time('horario_fim');

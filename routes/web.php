@@ -38,12 +38,12 @@ Route::get('/Disciplinas/editar/{id}', 'App\Http\Controllers\DisciplinaControlle
 Route::post('/Disciplinas/update/{id}', 'App\Http\Controllers\DisciplinaController@update')->name('disciplina.update');
 Route::get('/Disciplinas/{id}/edit', 'App\Http\Controllers\DisciplinaController@destroy')->name('disciplina.destroy');
 
-Route::get('/Turmas', 'App\Http\Controllers\AlunosController@index')->name('turma.index');
-Route::get('/Turmas/create', 'App\Http\Controllers\AlunosController@create')->name('turma.create');
-Route::post('/Turmas/store', 'App\Http\Controllers\AlunosController@store')->name('turma.store');
-Route::get('/Turmas/editar/{id}', 'App\Http\Controllers\AlunosController@edit')->name('turma.edit');
-Route::post('/Turmas/update/{id}', 'App\Http\Controllers\AlunosController@update')->name('turma.update');
-Route::get('/Turmas/{id}/edit', 'App\Http\Controllers\AlunosController@destroy')->name('turma.destroy');
+Route::get('/Turmas', 'App\Http\Controllers\TurmasController@index')->name('turma.index');
+Route::get('/Turmas/create', 'App\Http\Controllers\TurmasController@create')->name('turma.create');
+Route::post('/Turmas/store', 'App\Http\Controllers\TurmasController@store')->name('turma.store');
+Route::get('/Turmas/editar/{id}', 'App\Http\Controllers\TurmasController@edit')->name('turma.edit');
+Route::post('/Turmas/update/{id}', 'App\Http\Controllers\TurmasController@update')->name('turma.update');
+Route::get('/Turmas/{id}/edit', 'App\Http\Controllers\TurmasController@destroy')->name('turma.destroy');
 
 Route::get('/GradHorarios', 'App\Http\Controllers\GradHorariosController@index')->name('gradhorario.index');
 
@@ -53,7 +53,7 @@ Route::get('/GradHorarios/editar/{id}', 'App\Http\Controllers\GradHorariosContro
 Route::post('/GradHorarios/update/{id}', 'App\Http\Controllers\GradHorariosController@update')->name('gradhorario.update');
 Route::get('/GradHorarios/{id}/edit', 'App\Http\Controllers\GradHorariosController@destroy')->name('gradhorario.destroy');
 
-Route::get('/GradHorarios/show/{id}', 'App\Http\Controllers\GradHorariosController@show')->name('gradhorario.index');
+Route::get('/GradHorarios/show/{id}', 'App\Http\Controllers\GradHorariosController@show')->name('gradhorario.show');
 
 //Route::get('/professores', 'App\Http\Controllers\AlunosController@index')->name('alunos.index');;
 Route::get('/horario', 'App\Http\Controllers\HorariosController@index')->name('horarios.index');;

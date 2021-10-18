@@ -3,7 +3,7 @@
 @section('content')
 
 <div class="container">
-    <h1>Cadastrar Horarios</h1>
+    <h1>Horarios</h1>
         <a href="{{route('horario.create')}}"><button class="btn btn-primary">  Cadastrar Alunos</button> </a>
             <table class="table">
                 <thead class="thead-dark">

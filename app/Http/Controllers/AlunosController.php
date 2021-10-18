@@ -4,6 +4,7 @@ namespace App\Http\Controllers;
 
 use App\Models\ModelAluno;
 use App\Models\ModelProf;
+use App\Models\ModelTurma;
 use Illuminate\Http\Request;
 
 class AlunosController extends Controller
@@ -17,6 +18,7 @@ class AlunosController extends Controller
         
         //$this->objProf = new ModelProf();
         $this->objAlunos = new ModelAluno();
+        $this->objTurma = new ModelTurma();
 
     }
 
@@ -45,7 +47,8 @@ class AlunosController extends Controller
      */
     public function create()
     {
-        return view('Cadastro/Aluno');
+        $Turma = $this->objTurma->all();
+        return view('Cadastro/Aluno', compact('Turma'));
     }
 
     /**
@@ -93,8 +96,9 @@ class AlunosController extends Controller
      */
     public function edit($id)
     {
+        $TurmaEdit = $this->objTurma->all();
         $AlunoEdit = $this->objAlunos->Find($id);
-        return view('Editar/Aluno', compact('AlunoEdit'));
+        return view('Editar/Aluno', compact(array('AlunoEdit', 'TurmaEdit')));
 
 
     }
