@@ -19,7 +19,8 @@ class CreateModelAlunosTable extends Migration
             $table->string('Nome');
             $table->integer('Cpf'); //->unique();
             $table->date('Data_nascimento');
-            $table->string('Turma');
+            $table->integer('id_Turma')->unsigned();
+            $table->foreign('id_Turma')->references('id')->on('turmas')->onDelete('cascade')->onUpdate('cascade'); //->unique();;
             
 
             

@@ -24,5 +24,11 @@ class ModelTurma extends Model
         return $this->belongsTo(ModelGradHorario::class);
 
     }
+    
+    public function AlunoTurma(){
+
+        return $this->belongsTo(ModelAluno::class);
+
+    }
 
 }

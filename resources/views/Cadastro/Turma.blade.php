@@ -20,18 +20,18 @@
                                             <div class="form-group"> <label for="form_lastname">Código</label> <input id="form_lastname" type="text" name="Codigo" class="form-control" placeholder="" required="required" data-error="Lastname is required."> </div>
                                         </div>
                                     </div>
-                                    <div class="row">
-                                        <!--<div class="col-md-6">
+                                    <!--<div class="row">
+                                        <div class="col-md-6">
                                             <div class="form-group"> <label for="form_email"></label> <input id="form_email" type="number" name="Cpf" class="form-control" placeholder="" required="required" data-error="Valid email is required."> </div>
                                         </div>-->
-                                        <div class="col-md-6">
+                                        <!--<div class="col-md-6">
                                             <div class="form-group"> <label for="form_need">Estudantes:</br></label> 
                                                     @foreach($Aluno as $Alunos)
                                                     <input type="checkbox" name="Alunos[]" id="" value="{{$Alunos->Nome}}"> {{$Alunos->Nome}} </br>                             
                                                     
                                                     @endforeach
                                             </div>
-                                        </div>
+                                        </div>-->
                                     </div>
                                     <div class="row">
                                         <!--<div class="col-md-12">

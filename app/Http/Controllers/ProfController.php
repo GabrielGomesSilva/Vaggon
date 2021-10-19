@@ -81,7 +81,11 @@ class ProfController extends Controller
      */
     public function show($id)
     {
-        //
+        $teste = ModelProf::find(1)->MultiDisciplinas;
+
+        return view('show', compact('teste'));
+
+
     }
 
     /**

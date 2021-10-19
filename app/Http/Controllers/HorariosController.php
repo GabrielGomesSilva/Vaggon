@@ -11,6 +11,8 @@ class HorariosController extends Controller
 {
     
     public $objHorarios;
+    public $objDisciplinas;
+    public $objProfessores;
     //public $objProf;
 
     public function __construct()
@@ -92,8 +94,10 @@ class HorariosController extends Controller
      */
     public function edit($id)
     {
-        $HorariosEdit = $this->objHorarios->Find($id);
-        return view('Editar/Horario', compact('HorariosEdit'));
+        $HorariosEdit = $this->objHorarios->find($id);
+        $Disciplina = $this->objDisciplinas->all();
+        $Professor = $this->objProfessores->all();
+        return view('Editar/Horario', compact( array('HorariosEdit', 'Disciplina', 'Professor' )));
 
     }
 
@@ -108,7 +112,7 @@ class HorariosController extends Controller
     {
         $this->objHorarios->where(['id'=>$id])->update([
             'Codigo'=>$request->Codigo,
-            'dia_semana'=>$request->dia_semana,
+            'Dia_semana'=>$request->Dia_semana,
             'Professor'=>$request->Professor,
             'Disciplina'=>$request->Disciplina,
             'horario_inicio'=>$request->horario_inicio,

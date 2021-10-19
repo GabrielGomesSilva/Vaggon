@@ -16,7 +16,22 @@ class ModelProf extends Model
         'Cpf',
         'Data_nascimento',
         'Disciplina',
+        'id_disciplina',
         
     ];
+
+    /*public function Disciplinas(){
+
+        return $this->hasMany(ModelDisciplina::class, 'id','id_disciplina');
+
+    }*/
+
+    public function MultiDisciplinas(){
+
+        return $this->hasMany(ModelMulti_disciplinas::class, 'id','id_disciplina');
+
+    }
+
+
 
 }

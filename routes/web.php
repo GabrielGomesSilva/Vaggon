@@ -53,7 +53,7 @@ Route::get('/GradHorarios/editar/{id}', 'App\Http\Controllers\GradHorariosContro
 Route::post('/GradHorarios/update/{id}', 'App\Http\Controllers\GradHorariosController@update')->name('gradhorario.update');
 Route::get('/GradHorarios/{id}/edit', 'App\Http\Controllers\GradHorariosController@destroy')->name('gradhorario.destroy');
 
-Route::get('/GradHorarios/show/{id}', 'App\Http\Controllers\GradHorariosController@show')->name('gradhorario.show');
+Route::get('/GradHorarios/show/{id}', 'App\Http\Controllers\ProfController@show')->name('gradhorario.show');
 
 //Route::get('/professores', 'App\Http\Controllers\AlunosController@index')->name('alunos.index');;
 Route::get('/horario', 'App\Http\Controllers\HorariosController@index')->name('horarios.index');;

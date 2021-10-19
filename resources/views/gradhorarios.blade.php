@@ -8,11 +8,14 @@
             <table class="table">
                 <thead class="thead-dark">
                 <tr>
-                    <th>Código</th>
-                    <th>Nome</th>
-                    <th>Turma</th>
-                    <th>Horarios</th>
-                    <th>Ações</th>
+                    <th>Hórario</th>
+                    <th>Segunda</th>
+                    <th>Terça</th>
+                    <th>Quarta</th>
+                    <th>Quinta</th>
+                    <th>Sexta</th>
+                    <th>Sábado</th>
+                    <th>Domingo</th>
                     
                 </tr>
                 </thead>
@@ -20,8 +23,11 @@
                     @foreach($GradHorario as $GradHorarios)
                 <tr>
                     <td>{{$GradHorarios->Codigo}}</td>
-                    <td>{{$GradHorarios->Nome}}</td>
-                    <td>{{$GradHorarios->Turma}}</td>        
+                    <td>{{$GradHorarios->Nome}} </br> {{$GradHorarios->Turma}} </br> {{$GradHorarios->horarios}} </br> {{$GradHorarios->horarios}} </td>
+                    <td></td>        
+                    <td></td>        
+                    <td></td>        
+                    <td>{{$GradHorarios->horarios}}</td>        
                     <td>{{$GradHorarios->horarios}}</td>        
                     <td> <a href="{{route('gradhorario.edit', $GradHorarios->id)}}"> Editar</a>  | <a href="{{route('gradhorario.destroy', $GradHorarios->id)}}"> Excluir </a>  </td>
                     

@@ -60,19 +60,19 @@ class DisciplinaController extends Controller
     public function store(Request $request)
     {
         
-        $Professores = $request->Professores;
+        //$Professores = $request->Professores;
 
-        foreach($Professores as $Prof){
+        //foreach($Professores as $Prof){
 
         $cadastro = $this->objDisciplina->create([
             'Codigo'=>$request->Codigo,
             'Nome'=>$request->Nome,
-            'Professores'=>$Prof,
+            
             
 
         ]);
 
-    }
+    //}
 
         if($cadastro){
             return redirect('Disciplinas');
@@ -119,7 +119,7 @@ class DisciplinaController extends Controller
         $this->objDisciplina->where(['id'=>$id])->update([
             'Codigo'=>$request->Codigo,
             'Nome'=>$request->Nome,
-            'Professores'=>$request->Professores,
+            
             
 
         ]);

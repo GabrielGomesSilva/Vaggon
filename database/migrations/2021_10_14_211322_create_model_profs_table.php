@@ -20,7 +20,9 @@ class CreateModelProfsTable extends Migration
             
             $table->bigInteger('Cpf'); //->unique();
             $table->date('Data_nascimento');
-            $table->string('Disciplina')->nullable();;
+            $table->string('Disciplina')->nullable();
+            $table->bigInteger('id_disciplina')->unsigned();
+            $table->foreign('id_disciplina')->references('id')->on('Disciplina')->onDelete('cascade')->onUpdate('cascade'); //->unique();
             
             $table->timestamps();
         });

@@ -1,15 +1,9 @@
 <h1> </h1>
 
 <div>
+@foreach($teste->MultiDisciplinas as $testes)
+   <h1> {{$testes->pivot->Nome}} </h1>   
+@endforeach
 
-<?php   
-//var_dump($teste);
-foreach($teste as $foi){
-
-   var_dump($foi->GradHorario->id);
-}
-
-
-?>
 
 </div>

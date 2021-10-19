@@ -47,7 +47,7 @@ class AlunosController extends Controller
      */
     public function create()
     {
-        $Turma = $this->objTurma->all();
+        $Turma = $this->objAlunos->find(1)->AlunoTurma;
         return view('Cadastro/Aluno', compact('Turma'));
     }
 

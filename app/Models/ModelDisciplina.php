@@ -12,8 +12,15 @@ class ModelDisciplina extends Model
     protected $fillable = [
         'Codigo',
         'Nome',
-        'Professores',
+        //'Professores',
         
         
     ];
+
+    public function Professores(){
+
+        return $this->belongsTo(ModelMulti_disciplinas::class);
+
+    }
+
 }

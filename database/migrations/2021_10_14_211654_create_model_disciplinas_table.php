@@ -17,7 +17,7 @@ class CreateModelDisciplinasTable extends Migration
             $table->increments('id');
             $table->string('Codigo');
             $table->string('Nome');
-            $table->string('Professores');
+            //$table->string('Professores');
            
             
             

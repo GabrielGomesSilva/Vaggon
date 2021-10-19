@@ -101,8 +101,9 @@ class TurmasController extends Controller
      */
     public function edit($id)
     {
-        $DisciplinaEdit = $this->objDisciplina->Find($id);
-        return view('Editar/Disciplina', compact('DisciplinaEdit'));
+        $AlunoEdit = $this->objAlunos->all();
+        $TurmaEdit = $this->objTurma->Find($id);
+        return view('Editar/Turma', compact( array('TurmaEdit', 'AlunoEdit')));
 
 
     }
@@ -116,15 +117,15 @@ class TurmasController extends Controller
      */
     public function update(Request $request, $id)
     {
-        $this->objDisciplina->where(['id'=>$id])->update([
+        $this->objTurma->where(['id'=>$id])->update([
             'Codigo'=>$request->Codigo,
             'Nome'=>$request->Nome,
-            'Professores'=>$request->Professores,
+           
             
 
         ]);
 
-        return redirect('Disciplinas');
+        return redirect('Turmas');
     }
 
     /**
@@ -136,9 +137,9 @@ class TurmasController extends Controller
     public function destroy($id)
     {
         
-        $this->objDisciplina->destroy($id);
+        $this->objTurma->destroy($id);
 
-        return redirect('Disciplinas');
+        return redirect('Turmas');
 
 
     }

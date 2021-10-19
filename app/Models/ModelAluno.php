@@ -14,8 +14,15 @@ class ModelAluno extends Model
         'Nome',
         'Cpf',
         'Data_nascimento',
-        'Turma',
+        'id_Turma',
         
     ];
+
+    public function AlunoTurma(){
+
+        return $this->hasOne(ModelTurma::class , 'id', 'id_Turma' );
+
+    }
+
 
 }
