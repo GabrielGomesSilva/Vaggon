@@ -26,17 +26,17 @@
                                         </div>
                                         <div class="col-md-6">
                                             <div class="form-group"> <label for="form_need">Disciplinas</label> 
-                                            <select id="form_need" name="Disciplina" class="form-control" required="required" data-error="">
-                                                    <option value="" selected disabled>--Select Your Issue--</option>
+                                            <select id="form_need" name="id_disciplina" class="form-control" required="required" data-error="">
+                                                    <option value="" selected disabled>Selecione uma opção</option>
                                                     @foreach($Disciplina as $Disciplinas)
-                                                    <option value="{{$Disciplinas->Nome}}">{{$Disciplinas->Nome}}</option>
+                                                    <option value="{{$Disciplinas->id}}">{{$Disciplinas->Nome}}</option>
                                                     @endforeach
                                                 </select> </div>
                                         </div>
                                     </div>
                                     <div class="row">
                                         <div class="col-md-12">
-                                            <div class="form-group"> <label for="form_message">Data Nascimento</label> <input id="form_email" type="date" name="Data_nascimento" class="form-control" placeholder="" required="required" data-error="Valid email is required.">  </div>
+                                            <div class="form-group"> <label for="form_message">Data de nascimento</label> <input id="form_email" type="date" name="Data_nascimento" class="form-control" placeholder="" required="required" data-error="Valid email is required.">  </div>
                                         </div>
                                         <div class="col-md-12"> <input type="submit" class="btn btn-success btn-send pt-2 btn-block " value="Cadastrar"> </div>
                                     </div>

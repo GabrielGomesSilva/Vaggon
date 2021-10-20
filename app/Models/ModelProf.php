@@ -15,7 +15,7 @@ class ModelProf extends Model
         'Codigo',
         'Cpf',
         'Data_nascimento',
-        'Disciplina',
+        //'Disciplina',
         'id_disciplina',
         
     ];
@@ -28,7 +28,7 @@ class ModelProf extends Model
 
     public function MultiDisciplinas(){
 
-        return $this->hasMany(ModelMulti_disciplinas::class, 'id','id_disciplina');
+        return $this->hasMany(ModelDisciplina::class, 'id','id_disciplina');
 
     }
 

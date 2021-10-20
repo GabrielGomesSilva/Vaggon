@@ -3,10 +3,13 @@
 @section('content')
 
 <div class="container">
-    <h1>Alunos</h1>
-        <a href="{{route('aluno.create')}}"><button class="btn btn-primary">  Cadastrar Alunos</button> </a>
+    <div class="row ajustcabecalho" >   
+    <div class="col-10"><h1>Alunos</h1></div>
+    <a href="{{route('aluno.create')}}"><button class="btn btn-primary">  Cadastrar </button> </a>
+    </div>
+       
             <table class="table">
-                <thead class="thead-dark">
+                <thead class="thead">
                 <tr>
                     <th>Código</th>
                     <th>Nome</th>

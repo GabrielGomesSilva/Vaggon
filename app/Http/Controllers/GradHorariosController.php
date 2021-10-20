@@ -78,9 +78,9 @@ class GradHorariosController extends Controller
         $cadastro = $this->objGradHorario->create([
             'Codigo'=>$request->Codigo,
             'Nome'=>$request->Nome,
-            'Turma'=>$request->Turma,
-            'horarios'=>$request->horarios,
             'id_turma'=>$request->id_turma,
+            'horarios'=>$request->horarios,
+            
             
 
         ]);
@@ -142,9 +142,9 @@ class GradHorariosController extends Controller
         $this->objGradHorario->where(['id'=>$id])->update([
             'Codigo'=>$request->Codigo,
             'Nome'=>$request->Nome,
-            'Turma'=>$request->Turma,
-            'horarios'=>$request->horarios,
             'id_turma'=>$request->id_turma,
+            'horarios'=>$request->horarios,
+            
 
         ]);
 

@@ -27,6 +27,7 @@ class ProfController extends Controller
      */
     public function index()
     {
+        //$teste = ModelProf::find(1)->MultiDisciplinas;
         $Aluno = $this->objAlunos->all();
         $prof = $this->objProf->all();
         return view('prof', compact(array('prof','Aluno')));
@@ -60,7 +61,7 @@ class ProfController extends Controller
             'Codigo'=>$request->Codigo,
             'Cpf'=>$request->Cpf,
             'Data_nascimento'=>$request->Data_nascimento,
-            'Disciplina'=>$request->Disciplina,
+            'id_disciplina'=>$request->id_disciplina,
 
         ]);
 
@@ -117,7 +118,7 @@ class ProfController extends Controller
             'Nome'=>$request->Nome,
             'Codigo'=>$request->Codigo,
             'Cpf'=>$request->Cpf,
-            'Disciplina'=>$request->Disciplina,
+            'id_disciplina'=>$request->id_disciplina,
             'Data_nascimento'=>$request->Data_nascimento,
 
         ]);

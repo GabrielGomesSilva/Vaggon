@@ -15,9 +15,8 @@ class ModelGradHorario extends Model
     protected $fillable = [
         'Codigo',
         'Nome',
-        'Turma',
         'id_turma',
-        'horarios',
+        'id_horarios',
         
         
     ];

@@ -3,10 +3,12 @@
 @section('content')
 
 <div class="container">
-    <h1>Grade de Horários</h1>
-        <a href="{{route('gradhorario.create')}}"><button class="btn btn-primary">  Criar quadro</button> </a>
+<div class="row ajustcabecalho" >
+<div class="col-10"><h1>Grade de Horários</h1></div>
+<div class="col-2"><a href="{{route('gradhorario.create')}}"><button class="btn btn-primary">  Cadastrar</button> </a></div>
+</div>
             <table class="table">
-                <thead class="thead-dark">
+                <thead class="thead">
                 <tr>
                     <th>Hórario</th>
                     <th>Segunda</th>

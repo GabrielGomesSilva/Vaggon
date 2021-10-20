@@ -3,10 +3,12 @@
 @section('content')
 
 <div class="container">
-    <h1>Turmas</h1>
-        <a href="{{route('turma.create')}}"><button class="btn btn-primary">  Cadastrar Turma</button> </a>
+<div class="row ajustcabecalho" >
+<div class="col-10"><h1>Turmas</h1> </div>
+<div class="col-2"><a href="{{route('turma.create')}}"><button class="btn btn-primary">  Cadastrar</button> </a></div>
+</div>
             <table class="table">
-                <thead class="thead-dark">
+                <thead class="thead">
                 <tr>
                     <th>Código</th>
                     <th>Nome</th>
